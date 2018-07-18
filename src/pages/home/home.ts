@@ -1,5 +1,6 @@
 import { Component,ViewChild,ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ServiceProvider } from '../../providers/service/service';
 
 declare var google;
 
@@ -11,8 +12,10 @@ export class HomePage {
 
   @ViewChild('map') mapElement: ElementRef;
   map:any;
+  mapInitialised: boolean = false;
+  apiKey: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,private dataService: ServiceProvider) {
   }
 
   ionViewDidLoad(){
